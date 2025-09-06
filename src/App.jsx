@@ -1,78 +1,78 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import flashcards from "../public/flashcards.json";
+import React, { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 
 export default function App() {
-  const [index, setIndex] = useState(0);
-  const [input, setInput] = useState("");
-  const [score, setScore] = useState(0);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [flashcards, setFlashcards] = useState([])
+  const [index, setIndex] = useState(0)
+  const [showAnswer, setShowAnswer] = useState(false)
+  const [score, setScore] = useState(0)
 
-  const card = flashcards[index];
+  useEffect(() => {
+    fetch("/flashcards.json")
+      .then((res) => res.json())
+      .then((data) => setFlashcards(data))
+  }, [])
 
-  const checkAnswer = () => {
-    if (input.replace(/\s+/g, "") === card.answer.replace(/\s+/g, "")) {
-      setScore(score + 1);
-    }
-    setShowAnswer(true);
-  };
+  if (flashcards.length === 0) {
+    return <div className="flex items-center justify-center h-screen">Loading...</div>
+  }
 
-  const nextCard = () => {
-    setInput("");
-    setShowAnswer(false);
-    setIndex((prev) => (prev + 1) % flashcards.length);
-  };
+  const current = flashcards[index]
+
+  const handleNext = (correct) => {
+    if (correct) setScore(score + 1)
+    setShowAnswer(false)
+    setIndex((prev) => (prev + 1) % flashcards.length)
+  }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-      <h1 className="text-2xl font-bold mb-4">Algebra Flashcards</h1>
+    <div className="flex flex-col h-screen bg-gradient-to-b from-indigo-50 to-white">
+      {/* Score bar */}
+      <div className="flex justify-between items-center p-4 bg-indigo-600 text-white text-lg font-semibold">
+        <span>Score: {score}</span>
+        <span>{index + 1}/{flashcards.length}</span>
+      </div>
 
-      <motion.div
-        key={index}
-        className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <p className="text-lg mb-4">
-          Simplify: <strong>{card.question}</strong>
-        </p>
-
-        {!showAnswer ? (
-          <>
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="border p-2 w-full rounded mb-3"
-              placeholder="Enter answer..."
-            />
-            <button
-              onClick={checkAnswer}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-            >
-              Submit
-            </button>
-          </>
-        ) : (
-          <div className="space-y-3">
-            <p>
-              Correct Answer:{" "}
-              <span className="font-bold">{card.answer}</span>
-            </p>
-            <button
-              onClick={nextCard}
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-            >
-              Next Card
-            </button>
+      {/* Flashcard */}
+      <div className="flex-grow flex items-center justify-center">
+        <motion.div
+          className="w-[90%] max-w-sm h-64 bg-white rounded-2xl shadow-xl flex items-center justify-center text-center p-6 cursor-pointer"
+          onClick={() => setShowAnswer(!showAnswer)}
+          initial={false}
+          animate={{ rotateY: showAnswer ? 180 : 0 }}
+          transition={{ duration: 0.6 }}
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <div
+            className="absolute w-full h-full flex items-center justify-center text-2xl font-bold"
+            style={{ backfaceVisibility: "hidden" }}
+          >
+            {current.question}
           </div>
-        )}
-      </motion.div>
+          <div
+            className="absolute w-full h-full flex items-center justify-center text-2xl font-bold text-indigo-600"
+            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+          >
+            {current.answer}
+          </div>
+        </motion.div>
+      </div>
 
-      <p className="mt-4">
-        Score: {score} / {flashcards.length}
-      </p>
+      {/* Buttons */}
+      <div className="flex gap-4 justify-center p-4">
+        <button
+          onClick={() => handleNext(false)}
+          className="flex-1 bg-red-500 text-white py-3 rounded-xl shadow-md active:scale-95 transition"
+        >
+          Wrong
+        </button>
+        <button
+          onClick={() => handleNext(true)}
+          className="flex-1 bg-green-500 text-white py-3 rounded-xl shadow-md active:scale-95 transition"
+        >
+          Correct
+        </button>
+      </div>
     </div>
-  );
+  )
 }
