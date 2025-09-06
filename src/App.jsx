@@ -9,17 +9,16 @@ export default function App() {
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Load flashcards.json
+  // Load flashcards JSON
   useEffect(() => {
-    fetch("flashcards.json")
+    fetch("./flashcards.json")
       .then((res) => res.json())
       .then((data) => {
-        // Randomly select 10 flashcards from the 100
-        const shuffled = data.sort(() => 0.5 - Math.random());
-        setFlashcards(shuffled.slice(0, 10));
+        // Randomly pick 10 flashcards per session
+        const shuffled = data.sort(() => 0.5 - Math.random()).slice(0, 10);
+        setFlashcards(shuffled);
         setLoading(false);
-      })
-      .catch((err) => console.error("Error loading flashcards:", err));
+      });
   }, []);
 
   const handleAnswer = (value) =>
@@ -34,49 +33,37 @@ export default function App() {
     );
 
   const prevCard = () =>
-    setCurrentIndex((prev) => (prev === 0 ? 0 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? prev : prev - 1));
 
-  const startPractice = () => {
-    setLoading(true);
-    fetch("flashcards.json")
+  const restart = () => {
+    fetch("./flashcards.json")
       .then((res) => res.json())
       .then((data) => {
-        const shuffled = data.sort(() => 0.5 - Math.random());
-        setFlashcards(shuffled.slice(0, 10));
+        const shuffled = data.sort(() => 0.5 - Math.random()).slice(0, 10);
+        setFlashcards(shuffled);
         setCurrentIndex(0);
         setAnswers({});
         setShowResults(false);
-        setLoading(false);
-      })
-      .catch((err) => console.error("Error loading flashcards:", err));
+      });
   };
 
-  if (loading) {
-    return <div className="flashcards-container">Loading flashcards...</div>;
-  }
-
-  if (!flashcards.length) {
-    return (
-      <div className="flashcards-container">
-        <h1>Adding and Subtracting Terms Flashcards</h1>
-        <h3 style={{ fontWeight: "normal", marginBottom: "1rem" }}>
-          by Jonathan R. Bacolod, LPT
-        </h3>
-        <button className="btn-primary" onClick={startPractice}>
-          Start Practice
-        </button>
-      </div>
-    );
-  }
+  if (loading) return <p>Loading flashcards...</p>;
 
   if (showResults) {
     const score = flashcards.filter((card, i) =>
       checkAnswer(answers[i] || "", card.answer)
     ).length;
+
     return (
       <div className="answer-key-screen">
-        <h1 className="score">Score: {score}/{flashcards.length}</h1>
-        <h2>Answer Key</h2>
+        {/* Score is the most prominent */}
+        <h1 className="score">
+          Score: {score}/{flashcards.length}
+        </h1>
+
+        {/* Answer Key heading is smaller */}
+        <h3 style={{ marginBottom: "1rem", color: "#555" }}>Answer Key</h3>
+
         <div className="answer-key">
           {flashcards.map((card, i) => {
             const correct = checkAnswer(answers[i] || "", card.answer);
@@ -85,7 +72,9 @@ export default function App() {
                 <p>
                   <strong>Q{i + 1}:</strong> {card.question} <br />
                   Your Answer: {answers[i] || "(none)"}{" "}
-                  {correct ? "✓" : "✗"}
+                  <span className={correct ? "correct" : "incorrect"}>
+                    {correct ? "✓" : "✗"}
+                  </span>
                   <br />
                   Correct Answer: {card.answer}
                 </p>
@@ -93,8 +82,9 @@ export default function App() {
             );
           })}
         </div>
+
         <div className="button-group">
-          <button className="btn-primary" onClick={startPractice}>
+          <button className="btn-primary" onClick={restart}>
             Try Another Set
           </button>
           <button className="btn-submit" onClick={() => setShowResults(false)}>
