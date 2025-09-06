@@ -146,3 +146,11 @@ button {
 .answer-key strong {
   color: #111827;
 }
+
+.score {
+  font-size: 2rem;       /* Larger than h2 */
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #2c3e50;        /* Dark for emphasis */
+  text-align: center;
+}

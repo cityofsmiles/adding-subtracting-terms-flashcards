@@ -3,32 +3,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./flashcards.css";
 
 export default function App() {
-  const [allFlashcards, setAllFlashcards] = useState([]);
   const [flashcards, setFlashcards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
-  const [started, setStarted] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // ✅ Load JSON from public/ using base URL
+  // Load flashcards.json
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}flashcards.json`)
+    fetch("flashcards.json")
       .then((res) => res.json())
-      .then((data) => setAllFlashcards(data))
-      .catch((err) => console.error("Failed to load flashcards.json", err));
+      .then((data) => {
+        // Randomly select 10 flashcards from the 100
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        setFlashcards(shuffled.slice(0, 10));
+        setLoading(false);
+      })
+      .catch((err) => console.error("Error loading flashcards:", err));
   }, []);
-
-  // Pick 10 random flashcards
-  const startPractice = () => {
-    if (allFlashcards.length > 0) {
-      const shuffled = [...allFlashcards].sort(() => Math.random() - 0.5);
-      setFlashcards(shuffled.slice(0, 10));
-      setCurrentIndex(0);
-      setAnswers({});
-      setShowResults(false);
-      setStarted(true);
-    }
-  };
 
   const handleAnswer = (value) =>
     setAnswers({ ...answers, [currentIndex]: value });
@@ -37,26 +29,33 @@ export default function App() {
     userInput.replace(/\s+/g, "") === correct.replace(/\s+/g, "");
 
   const nextCard = () =>
-    setCurrentIndex((prev) => (prev === flashcards.length - 1 ? prev : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === flashcards.length - 1 ? prev : prev + 1
+    );
 
   const prevCard = () =>
     setCurrentIndex((prev) => (prev === 0 ? 0 : prev - 1));
 
-  // --- Loading state ---
-  if (allFlashcards.length === 0) {
-    return (
-      <div className="flashcards-container">
-        <h1>Adding and Subtracting Terms Flashcards</h1>
-        <h3 style={{ fontWeight: "normal", marginBottom: "1rem" }}>
-          by Jonathan R. Bacolod, LPT
-        </h3>
-        <p>Loading flashcards...</p>
-      </div>
-    );
+  const startPractice = () => {
+    setLoading(true);
+    fetch("flashcards.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        setFlashcards(shuffled.slice(0, 10));
+        setCurrentIndex(0);
+        setAnswers({});
+        setShowResults(false);
+        setLoading(false);
+      })
+      .catch((err) => console.error("Error loading flashcards:", err));
+  };
+
+  if (loading) {
+    return <div className="flashcards-container">Loading flashcards...</div>;
   }
 
-  // --- Start Screen ---
-  if (!started) {
+  if (!flashcards.length) {
     return (
       <div className="flashcards-container">
         <h1>Adding and Subtracting Terms Flashcards</h1>
@@ -70,32 +69,23 @@ export default function App() {
     );
   }
 
-  // --- Results Screen ---
   if (showResults) {
     const score = flashcards.filter((card, i) =>
       checkAnswer(answers[i] || "", card.answer)
     ).length;
-
     return (
       <div className="answer-key-screen">
-        <p className="score">
-          Score: {score}/{flashcards.length}
-        </p>
+        <h1 className="score">Score: {score}/{flashcards.length}</h1>
         <h2>Answer Key</h2>
         <div className="answer-key">
           {flashcards.map((card, i) => {
             const correct = checkAnswer(answers[i] || "", card.answer);
             return (
-              <div key={i}>
+              <div key={i} className="answer-item">
                 <p>
-                  <strong>Q{i + 1}:</strong> {card.question}
-                  <br />
+                  <strong>Q{i + 1}:</strong> {card.question} <br />
                   Your Answer: {answers[i] || "(none)"}{" "}
-                  {correct ? (
-                    <span className="correct">✅</span>
-                  ) : (
-                    <span className="wrong">❌</span>
-                  )}
+                  {correct ? "✓" : "✗"}
                   <br />
                   Correct Answer: {card.answer}
                 </p>
@@ -115,7 +105,6 @@ export default function App() {
     );
   }
 
-  // --- Flashcard Screen ---
   const currentCard = flashcards[currentIndex];
 
   return (
@@ -124,7 +113,9 @@ export default function App() {
       <h3 style={{ fontWeight: "normal", marginBottom: "1rem" }}>
         by Jonathan R. Bacolod, LPT
       </h3>
-      <h2>Flashcard {currentIndex + 1} of {flashcards.length}</h2>
+      <h2>
+        Flashcard {currentIndex + 1} of {flashcards.length}
+      </h2>
       <div className="flashcard-container">
         <AnimatePresence mode="wait">
           <motion.div
