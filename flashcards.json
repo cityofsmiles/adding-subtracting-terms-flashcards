@@ -1,0 +1,602 @@
+[
+  {
+    "question": "7*z**6",
+    "answer": "7*z**6",
+    "case": 1
+  },
+  {
+    "question": "12*b**8",
+    "answer": "12*b**8",
+    "case": 1
+  },
+  {
+    "question": "5*y**3",
+    "answer": "5*y**3",
+    "case": 1
+  },
+  {
+    "question": "12*a**7",
+    "answer": "12*a**7",
+    "case": 1
+  },
+  {
+    "question": "10*y**8",
+    "answer": "10*y**8",
+    "case": 1
+  },
+  {
+    "question": "14*y**7",
+    "answer": "14*y**7",
+    "case": 1
+  },
+  {
+    "question": "8*c**3",
+    "answer": "8*c**3",
+    "case": 1
+  },
+  {
+    "question": "8*a**7",
+    "answer": "8*a**7",
+    "case": 1
+  },
+  {
+    "question": "6*a**8",
+    "answer": "6*a**8",
+    "case": 1
+  },
+  {
+    "question": "12*y**7",
+    "answer": "12*y**7",
+    "case": 1
+  },
+  {
+    "question": "17*y**7",
+    "answer": "17*y**7",
+    "case": 1
+  },
+  {
+    "question": "10*c**2",
+    "answer": "10*c**2",
+    "case": 1
+  },
+  {
+    "question": "15*y**8",
+    "answer": "15*y**8",
+    "case": 1
+  },
+  {
+    "question": "13*c**3",
+    "answer": "13*c**3",
+    "case": 1
+  },
+  {
+    "question": "2*a**3",
+    "answer": "2*a**3",
+    "case": 1
+  },
+  {
+    "question": "5*x**5",
+    "answer": "5*x**5",
+    "case": 1
+  },
+  {
+    "question": "9*x**3",
+    "answer": "9*x**3",
+    "case": 1
+  },
+  {
+    "question": "12*z**8",
+    "answer": "12*z**8",
+    "case": 1
+  },
+  {
+    "question": "6*x**6",
+    "answer": "6*x**6",
+    "case": 1
+  },
+  {
+    "question": "6*z**4",
+    "answer": "6*z**4",
+    "case": 1
+  },
+  {
+    "question": "10*b**8",
+    "answer": "10*b**8",
+    "case": 1
+  },
+  {
+    "question": "9*y**7",
+    "answer": "9*y**7",
+    "case": 1
+  },
+  {
+    "question": "8*z**5",
+    "answer": "8*z**5",
+    "case": 1
+  },
+  {
+    "question": "15*z**5",
+    "answer": "15*z**5",
+    "case": 1
+  },
+  {
+    "question": "11*y**4",
+    "answer": "11*y**4",
+    "case": 1
+  },
+  {
+    "question": "5*a**8",
+    "answer": "5*a**8",
+    "case": 1
+  },
+  {
+    "question": "6*x**8",
+    "answer": "6*x**8",
+    "case": 1
+  },
+  {
+    "question": "2*z**5",
+    "answer": "2*z**5",
+    "case": 1
+  },
+  {
+    "question": "13*a**2",
+    "answer": "13*a**2",
+    "case": 1
+  },
+  {
+    "question": "15*a**7",
+    "answer": "15*a**7",
+    "case": 1
+  },
+  {
+    "question": "6*a**5",
+    "answer": "6*a**5",
+    "case": 2
+  },
+  {
+    "question": "-6*a**8",
+    "answer": "-6*a**8",
+    "case": 2
+  },
+  {
+    "question": "3*a**6",
+    "answer": "3*a**6",
+    "case": 2
+  },
+  {
+    "question": "-10*x**3",
+    "answer": "-10*x**3",
+    "case": 2
+  },
+  {
+    "question": "-13*y**2",
+    "answer": "-13*y**2",
+    "case": 2
+  },
+  {
+    "question": "10*b**4",
+    "answer": "10*b**4",
+    "case": 2
+  },
+  {
+    "question": "-6*c**5",
+    "answer": "-6*c**5",
+    "case": 2
+  },
+  {
+    "question": "8*y**2",
+    "answer": "8*y**2",
+    "case": 2
+  },
+  {
+    "question": "-11*z**3",
+    "answer": "-11*z**3",
+    "case": 2
+  },
+  {
+    "question": "6*x**5",
+    "answer": "6*x**5",
+    "case": 2
+  },
+  {
+    "question": "-4*a**8",
+    "answer": "-4*a**8",
+    "case": 2
+  },
+  {
+    "question": "-5*x**4",
+    "answer": "-5*x**4",
+    "case": 2
+  },
+  {
+    "question": "-c**4",
+    "answer": "-c**4",
+    "case": 2
+  },
+  {
+    "question": "-13*a**8",
+    "answer": "-13*a**8",
+    "case": 2
+  },
+  {
+    "question": "-6*z**4",
+    "answer": "-6*z**4",
+    "case": 2
+  },
+  {
+    "question": "8*c**6",
+    "answer": "8*c**6",
+    "case": 2
+  },
+  {
+    "question": "-8*y**7",
+    "answer": "-8*y**7",
+    "case": 2
+  },
+  {
+    "question": "3*c**2",
+    "answer": "3*c**2",
+    "case": 2
+  },
+  {
+    "question": "9*a**5",
+    "answer": "9*a**5",
+    "case": 2
+  },
+  {
+    "question": "-10*x**5",
+    "answer": "-10*x**5",
+    "case": 2
+  },
+  {
+    "question": "-15*b**7",
+    "answer": "-15*b**7",
+    "case": 2
+  },
+  {
+    "question": "-2*b**6",
+    "answer": "-2*b**6",
+    "case": 2
+  },
+  {
+    "question": "-3*z**3",
+    "answer": "-3*z**3",
+    "case": 2
+  },
+  {
+    "question": "-5*z**7",
+    "answer": "-5*z**7",
+    "case": 2
+  },
+  {
+    "question": "-2*c**4",
+    "answer": "-2*c**4",
+    "case": 2
+  },
+  {
+    "question": "-3*x**3",
+    "answer": "-3*x**3",
+    "case": 2
+  },
+  {
+    "question": "9*x**3",
+    "answer": "9*x**3",
+    "case": 2
+  },
+  {
+    "question": "4*y**5",
+    "answer": "4*y**5",
+    "case": 2
+  },
+  {
+    "question": "2*b**4",
+    "answer": "2*b**4",
+    "case": 2
+  },
+  {
+    "question": "-3*z**8",
+    "answer": "-3*z**8",
+    "case": 2
+  },
+  {
+    "question": "-6*x**8",
+    "answer": "-6*x**8",
+    "case": 3
+  },
+  {
+    "question": "-2*z**7",
+    "answer": "-2*z**7",
+    "case": 3
+  },
+  {
+    "question": "0",
+    "answer": "0",
+    "case": 3
+  },
+  {
+    "question": "-4*a**7",
+    "answer": "-4*a**7",
+    "case": 3
+  },
+  {
+    "question": "-4*c**3",
+    "answer": "-4*c**3",
+    "case": 3
+  },
+  {
+    "question": "-z**6",
+    "answer": "-z**6",
+    "case": 3
+  },
+  {
+    "question": "-2*z**8",
+    "answer": "-2*z**8",
+    "case": 3
+  },
+  {
+    "question": "6*a**4",
+    "answer": "6*a**4",
+    "case": 3
+  },
+  {
+    "question": "4*c**6",
+    "answer": "4*c**6",
+    "case": 3
+  },
+  {
+    "question": "2*b**4",
+    "answer": "2*b**4",
+    "case": 3
+  },
+  {
+    "question": "-c**7",
+    "answer": "-c**7",
+    "case": 3
+  },
+  {
+    "question": "-a**3",
+    "answer": "-a**3",
+    "case": 3
+  },
+  {
+    "question": "-3*c**3",
+    "answer": "-3*c**3",
+    "case": 3
+  },
+  {
+    "question": "-c**2",
+    "answer": "-c**2",
+    "case": 3
+  },
+  {
+    "question": "5*c**8",
+    "answer": "5*c**8",
+    "case": 3
+  },
+  {
+    "question": "-c**3",
+    "answer": "-c**3",
+    "case": 3
+  },
+  {
+    "question": "4*x**6",
+    "answer": "4*x**6",
+    "case": 3
+  },
+  {
+    "question": "-6*y**6",
+    "answer": "-6*y**6",
+    "case": 3
+  },
+  {
+    "question": "a**3",
+    "answer": "a**3",
+    "case": 3
+  },
+  {
+    "question": "7*y**5",
+    "answer": "7*y**5",
+    "case": 3
+  },
+  {
+    "question": "5*y**8",
+    "answer": "5*y**8",
+    "case": 3
+  },
+  {
+    "question": "-c**3",
+    "answer": "-c**3",
+    "case": 3
+  },
+  {
+    "question": "0",
+    "answer": "0",
+    "case": 3
+  },
+  {
+    "question": "-2*z**7",
+    "answer": "-2*z**7",
+    "case": 3
+  },
+  {
+    "question": "-c**4",
+    "answer": "-c**4",
+    "case": 3
+  },
+  {
+    "question": "3*x**8",
+    "answer": "3*x**8",
+    "case": 3
+  },
+  {
+    "question": "-b**8",
+    "answer": "-b**8",
+    "case": 3
+  },
+  {
+    "question": "0",
+    "answer": "0",
+    "case": 3
+  },
+  {
+    "question": "-c**6",
+    "answer": "-c**6",
+    "case": 3
+  },
+  {
+    "question": "-3*x**7",
+    "answer": "-3*x**7",
+    "case": 3
+  },
+  {
+    "question": "-b**6",
+    "answer": "-b**6",
+    "case": 4
+  },
+  {
+    "question": "-b**7",
+    "answer": "-b**7",
+    "case": 4
+  },
+  {
+    "question": "-9*a**7",
+    "answer": "-9*a**7",
+    "case": 4
+  },
+  {
+    "question": "14*b**6",
+    "answer": "14*b**6",
+    "case": 4
+  },
+  {
+    "question": "-9*z**8",
+    "answer": "-9*z**8",
+    "case": 4
+  },
+  {
+    "question": "-8*z**3",
+    "answer": "-8*z**3",
+    "case": 4
+  },
+  {
+    "question": "-11*a**5",
+    "answer": "-11*a**5",
+    "case": 4
+  },
+  {
+    "question": "8*z**6",
+    "answer": "8*z**6",
+    "case": 4
+  },
+  {
+    "question": "-11*c**6",
+    "answer": "-11*c**6",
+    "case": 4
+  },
+  {
+    "question": "4*a**8",
+    "answer": "4*a**8",
+    "case": 4
+  },
+  {
+    "question": "-6*a**8",
+    "answer": "-6*a**8",
+    "case": 4
+  },
+  {
+    "question": "z**7",
+    "answer": "z**7",
+    "case": 4
+  },
+  {
+    "question": "-17*c**8",
+    "answer": "-17*c**8",
+    "case": 4
+  },
+  {
+    "question": "-x**8",
+    "answer": "-x**8",
+    "case": 4
+  },
+  {
+    "question": "5*c**6",
+    "answer": "5*c**6",
+    "case": 4
+  },
+  {
+    "question": "5*x**2",
+    "answer": "5*x**2",
+    "case": 4
+  },
+  {
+    "question": "-6*x**2",
+    "answer": "-6*x**2",
+    "case": 4
+  },
+  {
+    "question": "4*c**7",
+    "answer": "4*c**7",
+    "case": 4
+  },
+  {
+    "question": "4*c**6",
+    "answer": "4*c**6",
+    "case": 4
+  },
+  {
+    "question": "10*z**3",
+    "answer": "10*z**3",
+    "case": 4
+  },
+  {
+    "question": "-14*x**6",
+    "answer": "-14*x**6",
+    "case": 4
+  },
+  {
+    "question": "2*y**4",
+    "answer": "2*y**4",
+    "case": 4
+  },
+  {
+    "question": "-2*z**7",
+    "answer": "-2*z**7",
+    "case": 4
+  },
+  {
+    "question": "-5*a**5",
+    "answer": "-5*a**5",
+    "case": 4
+  },
+  {
+    "question": "9*z**3",
+    "answer": "9*z**3",
+    "case": 4
+  },
+  {
+    "question": "12*a**3",
+    "answer": "12*a**3",
+    "case": 4
+  },
+  {
+    "question": "a**3",
+    "answer": "a**3",
+    "case": 4
+  },
+  {
+    "question": "10*b**3",
+    "answer": "10*b**3",
+    "case": 4
+  },
+  {
+    "question": "-4*c**5",
+    "answer": "-4*c**5",
+    "case": 4
+  },
+  {
+    "question": "-3*a**4",
+    "answer": "-3*a**4",
+    "case": 4
+  }
+]
