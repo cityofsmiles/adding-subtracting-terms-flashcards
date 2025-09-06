@@ -8,9 +8,11 @@ export default function App() {
   const [score, setScore] = useState(0)
 
   useEffect(() => {
-    fetch("/flashcards.json")
+    // ✅ Use BASE_URL so it works on GitHub Pages
+    fetch(`${import.meta.env.BASE_URL}flashcards.json`)
       .then((res) => res.json())
       .then((data) => setFlashcards(data))
+      .catch((err) => console.error("Failed to load flashcards:", err))
   }, [])
 
   if (flashcards.length === 0) {
